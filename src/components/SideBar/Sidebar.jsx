@@ -1,15 +1,23 @@
 import React from 'react'
-import "./sidebar.css"
+import "./Sidebar.css"
+import { Link } from "react-scroll"
+import { Divider } from '@mui/material'
 
-const sidebar = () => {
+const Sidebar = () => {
   return (
-    <sidebar>
-       <a className="link-menu"> Home </a>
-       <a className="link-menu"> Statistic </a>
-       <a className="link-menu"> User </a>
-       <a className="link-menu"> CMS </a>
-    </sidebar>
-  )
+    <div className="sidebar">
+        <div className="title__dashboard">
+            The Dashboard
+        </div>
+
+        <div id="nav-link" className='nav_links'>
+            <Link className="link-menu" href="#home" activeClass='active' spy to="home" >Home</Link>
+            <Link className="link-menu" href="#about" activeClass='active' spy to="about" >Statistic</Link>
+            <Link className="link-menu" href="#experience" activeClass='active' spy to="experience" >User</Link>
+            <Link className="link-menu" href="#portofolio" activeClass='active' spy to="portofolio" >CMS</Link>
+        </div>
+    </div>
+  )   
 }
 
-export default sidebar
+export default Sidebar
