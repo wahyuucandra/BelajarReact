@@ -1,17 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
 import './App.css'
-import Header from "./components/Header/Header"
-import SideBar from "./components/SideBar/Sidebar"
-import UserManagement from "./components/Page/UserManagement/UserManagement"
+import Header from "./components/Header"
+import SideBar from "./components/Sidebar"
 
 function App() {
   return (
     <div className="main">
       <Header/>
       <SideBar/>
-      <UserManagement/>
     </div>
   )
 }

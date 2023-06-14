@@ -1,5 +1,4 @@
 import React from 'react'
-import "./Header.css"
 import {useState} from 'react'
 import {GiHamburgerMenu} from "react-icons/gi"
 import {AiOutlineClose} from "react-icons/ai"
