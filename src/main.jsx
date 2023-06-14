@@ -18,8 +18,8 @@ const router = createBrowserRouter([
           element: <div><App/><Film/></div>,
         },
         {
-          path: "statistic",
-          element: <div><App/><div className="content"> Ini Menu Statistic</div></div>,
+          path: "home",
+          element: <div><App/><div className="content"> Ini Menu Home</div></div>,
         },
         {
           path: "user",

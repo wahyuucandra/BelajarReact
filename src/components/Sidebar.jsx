@@ -8,8 +8,8 @@ const Sidebar = () => {
         </div>
 
         <div id="nav-link" className='nav_links'>
-            <a className="link-menu" href="film" >Film</a>
-            <a className="link-menu" href="statistic">Statistic</a>
+            <a className="link-menu" href="home" >Home</a>
+            <a className="link-menu" href="film">Film</a>
             <a className="link-menu" href="user" >User</a>
             <a className="link-menu" href="cms">CMS</a>
         </div>

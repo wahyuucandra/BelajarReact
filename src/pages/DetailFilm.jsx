@@ -1,20 +1,6 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import Moment from 'moment';
 
-const Film = () => {
-  const [films, setFilm] = useState([])
-  const imageUrl = 'https://image.tmdb.org/t/p/w220_and_h330_face/'
-
-  useEffect(() => {
-    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=0a350cb055a3de4cd194553ee54fd757')
-      .then(response => {
-        setFilm(response.data.results)
-        console.log(films)
-      });
-    
-  }, [])
-
+const DetailFilm = (data) => {
   return (
     <div className="content">
       <div className="main_content">
@@ -47,4 +33,4 @@ const Film = () => {
 
 
 
-export default Film
+export default DetailFilm
