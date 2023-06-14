@@ -1,16 +1,17 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
-import axios from 'axios'
-
-const baseURL = "https://api.themoviedb.org/3/movie/popular?api_key=0a350cb055a3de4cd194553ee54fd757";
-
-useEffect(() => {
-  axios.get(baseURL).then((response) => {
-      console.log(response.data);
-      return response;
-  });
-}, []);
 
 const Film = () => {
+  const [film, setFilm] = useState([])
+
+  useEffect(() => {
+    axios.get('https://api.themoviedb.org/3/movie/popular/200?api_key=0a350cb055a3de4cd194553ee54fd757')
+      .then(response => 
+        setFilm(response)
+      );
+    console.log(film);
+  }, [])
+
   return (
     <div className="content">
       <div className="main_content">
@@ -24,13 +25,13 @@ const Film = () => {
         </div>
          
         <div className="content_midle">
-            <div className="film_container">
+            {/* <div className="film_container">
                 {animals.map((film) => 
                     <div>
                       <img src={film} alt="About Image"/>
                     </div>
                 )}
-            </div>
+            </div> */}
         </div>
       </div>
     </div>
