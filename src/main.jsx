@@ -8,29 +8,34 @@ import {
 } from "react-router-dom"
 import UserManagement from "./pages/UserManagement.jsx"
 import Film from './pages/Film.jsx'
+import DetailFilm from './pages/DetailFilm.jsx'
 
 const router = createBrowserRouter([
     {
-      path: "/",
+      path: "",
+      element: <div><App/><div className="content"> Ini Menu Home</div></div>,
+    },
+    {
+      path: "film",
       children: [
         {
-          path: "film",
+          path: "",
           element: <div><App/><Film/></div>,
         },
         {
-          path: "home",
-          element: <div><App/><div className="content"> Ini Menu Home</div></div>,
+          path: ":id",
+          element: <div><App/><DetailFilm/></div>
         },
-        {
-          path: "user",
-          element: <div><App/><UserManagement/></div>,
-        },
-        {
-          path: "cms",
-          element: <div><App/><div className="content"> Ini Menu CMS</div></div>,
-        },
-      ],
-    }
+      ]
+    },
+    {
+      path: "user",
+      element: <div><App/><UserManagement/></div>,
+    },
+    {
+      path: "cms",
+      element: <div><App/><div className="content"> Ini Menu CMS</div></div>,
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

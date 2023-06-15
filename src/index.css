@@ -360,6 +360,25 @@ color:black;
   color: rgba(0,0,0,0.6);
 }
 
+.single_column {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-content {
+  min-width: 300px;
+  width: 300px;
+  height: 450px;
+  margin-left: 30px;
+  border-radius: 10px;
+}
+
 /* ========== MEDIA QUERIES (MEDIUM DEVICES) ========== */
 @media screen and (max-width: 1024px) {
   .container {

@@ -1,19 +1,16 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import Moment from 'moment';
+import GetAllMovies from "../api/GetAllMovies";
+import { useNavigate } from "react-router-dom";
 
 const Film = () => {
-  const [films, setFilm] = useState([])
+  const films = GetAllMovies();
   const imageUrl = 'https://image.tmdb.org/t/p/w220_and_h330_face/'
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=0a350cb055a3de4cd194553ee54fd757')
-      .then(response => {
-        setFilm(response.data.results)
-        console.log(films)
-      });
-    
-  }, [])
+  function getDetail (id) { 
+    console.log(id)
+    navigate("/film/"+id)
+  }
 
   return (
     <div className="content">
@@ -22,15 +19,15 @@ const Film = () => {
           <div className="title_content">Popular Film</div>
           
           <ul class="breadcrumb">
-            <li><a href="home">Home</a></li>
+            <li><a href="">Home</a></li>
             <li>Film</li>
           </ul>
         </div>
          
         <div className="content_midle">
             <div className="film_container">
-                {films.map((data) => 
-                    <div className="card_film">
+                {films.map((data, id) => 
+                    <div key = {id} className="card_film" onClick={ () => getDetail(data.id)}>
                       <img  src={imageUrl + data.poster_path} alt="About Image"/>
                       <div className="description_film">
                         <div className="title_film">{data.original_title}</div>
