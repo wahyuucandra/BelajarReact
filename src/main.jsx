@@ -8,33 +8,44 @@ import {
 } from "react-router-dom"
 import UserManagement from "./pages/UserManagement.jsx"
 import Film from './pages/Film.jsx'
-
-const baseURL = "https://api.themoviedb.org/3/movie/popular?api_key=0a350cb055a3de4cd194553ee54fd757";
+import DetailFilm from './pages/DetailFilm.jsx'
 
 const router = createBrowserRouter([
     {
-      path: "/",
+      path: "",
+      // element: <App/>,
+      element: <div><App/><div className="content"> Ini Menu Home</div></div>,
+    },
+    {
+      path: "film",
       children: [
         {
-          path: "film",
+          path: "",
           element: <div><App/><Film/></div>,
         },
         {
-          path: "statistic",
-          element: <div><App/><div className="content"> Ini Menu Statistic</div></div>,
+          path: ":id",
+          element: <div><App/><DetailFilm/></div>
         },
-        {
-          path: "user",
-          element: <div><App/><UserManagement/></div>,
-        },
-        {
-          path: "cms",
-          element: <div><App/><div className="content"> Ini Menu CMS</div></div>,
-        },
-      ],
-    }
+      ]
+    },
+    {
+      path: "user",
+      element: <div><App/><UserManagement/></div>,
+    },
+    {
+      path: "cms",
+      element: <div><App/><div className="content"> Ini Menu CMS</div></div>,
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router}/>
 )
+
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <Provider context={ThemeContext}>
+//       <RouterProvider router={router}/>
+//   </Provider>
+  
+// )
