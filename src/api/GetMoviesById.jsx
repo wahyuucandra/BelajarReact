@@ -7,12 +7,17 @@ const apiKey  = "?api_key=0a350cb055a3de4cd194553ee54fd757"
 const GetMoviesById = (id) => {
   const [film, setFilm] = useState([])
 
+  const fetchData = () => {
+    
+  }
+
   useEffect(() => {
     axios.get(baseURL + id + apiKey)
-      .then(response => {
-        setFilm(response.data)
-      });
-    
+    .then(response => {
+      setFilm(response.data)
+    }).catch(error => {
+      console.log(error)
+    });
   }, [])
 
   return film;

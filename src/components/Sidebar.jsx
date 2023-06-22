@@ -1,23 +1,35 @@
-import React from 'react'
+import { useEffect, useState } from "react";
 import {
-  Link, useParams
+  Link,
 } from "react-router-dom"
+import {GiHamburgerMenu} from "react-icons/gi"
+import {AiOutlineClose} from "react-icons/ai"
 
 const Sidebar = () => {
-  const param = useParams()
+  const [active, setActive] = useState(localStorage.getItem('active'))
+
+  useEffect(() => {
+    localStorage.setItem('active', 1)
+  }, []);
+
+  const setActiveMenu = (menu) => {
+    setActive(menu)
+    localStorage.setItem('active', menu)
+    
+  }
 
   return (
-    <div className="sidebar">
-        <div className="title__dashboard">
-            The Dashboard
+    <div className="nav">
+      <div id="navbar" className="sidebar">
+        <div className="desktop_view">
+          <div id="nav-link" className='nav_links'>
+              <Link className= { active==1 ? "link-menu-active": "link-menu"} onClick={() => setActiveMenu(1)} to="/" >Home</Link>
+              <Link className= { active==2 ? "link-menu-active": "link-menu"} onClick={() => setActiveMenu(2)} to="/film">Film</Link>
+              <Link className= { active==3 ? "link-menu-active": "link-menu"} onClick={() => setActiveMenu(3)} to="/user" >User</Link>
+              <Link className= { active==4 ? "link-menu-active": "link-menu"} onClick={() => setActiveMenu(4)} to="/cms">CMS</Link>
+          </div>
         </div>
-
-        <div id="nav-link" className='nav_links'>
-            <Link className="link-menu" to="/" >Home</Link>
-            <Link className="link-menu" to="/film">Film</Link>
-            <Link className="link-menu" to="/user" >User</Link>
-            <Link className="link-menu" to="/cms">CMS</Link>
-        </div>
+      </div>
     </div>
   )   
 }

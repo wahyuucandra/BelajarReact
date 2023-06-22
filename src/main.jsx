@@ -13,6 +13,7 @@ import DetailFilm from './pages/DetailFilm.jsx'
 const router = createBrowserRouter([
     {
       path: "",
+      // element: <App/>,
       element: <div><App/><div className="content"> Ini Menu Home</div></div>,
     },
     {
@@ -41,3 +42,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router}/>
 )
+
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <Provider context={ThemeContext}>
+//       <RouterProvider router={router}/>
+//   </Provider>
+  
+// )

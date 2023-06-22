@@ -27,7 +27,7 @@ const rows = [
 
 const UserManagement = () => {
   return (
-    <div className="content">
+    <div id="content" className="content">
       <div className="main_content">
         <div className="top_content">
           <div className="title_content">User Management</div>
